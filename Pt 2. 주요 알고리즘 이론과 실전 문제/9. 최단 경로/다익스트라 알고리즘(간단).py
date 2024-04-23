@@ -19,7 +19,7 @@ def get_smallest_node():
     min_value = INF
     index = 0
     for i in range(1, n+1):
-        if distance[i] < min_value and not visited[i]:
+        if distance[i] < min_value and not visited[i]:  # 방문하지 않은 노드 중에서 최단 거리가 짧은 노드의 인덱스 반환
             min_value = distance[i]
             index = i
     return index
@@ -31,13 +31,13 @@ def dijkstra(start):
     for j in graph[start]:      # start 노드와 연결된 간선 정보를 distance 배열에 저장
         distance[j[0]] = j[1]
 
-    for i in range(n-1):
-        now = get_smallest_node()  # 방문하지 않은 노드 중에서 최단 거리가 짧은 노드의 인덱스 반환
+    for i in range(n-1):  # start 노드를 제외한 나머지 노드에 대한 최단 거리 갱신 (n-1)번 수행
+        now = get_smallest_node()
         visited[now] = True
 
-        for j in graph[now]:
+        for j in graph[now]:  # 각 노드와 연결된 이웃 노드에 대해
             cost = distance[now] + j[1]
-            if cost < distance[j[0]]:
+            if cost < distance[j[0]]:  # 최단 거리 갱신
                 distance[j[0]] = cost
 
 dijkstra(start)
