@@ -9,7 +9,7 @@ result = 0
 
 for b in building:
     while stack and stack[-1] <=b:
-        stack.pop()
+        stack.pop()  # 자신보다 큰 빌딩이 나왔으므로 그 이후 다 못봄
     stack.append(b)
     result += len(stack) - 1  # result에 더해주는 값은 i번째 건물을 볼 수 있는 다른 건물의 수
 

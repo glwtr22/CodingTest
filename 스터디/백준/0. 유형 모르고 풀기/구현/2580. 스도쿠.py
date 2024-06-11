@@ -2,6 +2,7 @@ import sys
 input = sys.stdin.readline
 
 board = [list(map(int, input().split())) for _ in range(9)]
+# 채워야 하는 칸의 위치 정보 저장하는 변수
 nxt = []
 for x in range(9):
     for y in range(9):

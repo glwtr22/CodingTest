@@ -3,7 +3,7 @@ from itertools import combinations
 n, k = map(int, input().split())
 words = [input()[4:-4] for _ in range(n)]  # words에는 앞 뒤 4글자 제외한 중간 단어 저장
 
-learned = {'a', 'n','t', 'i', 'c'}  # 배운 글자 learned에 집합 데이터로 저장
+learned = {'a', 'n', 't', 'i', 'c'}  # 배운 글자 learned에 집합 데이터로 저장
 
 k -= len(learned)  # k에 더 배울 수 있는 단어 수 저장
 
