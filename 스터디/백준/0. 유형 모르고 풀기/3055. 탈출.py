@@ -20,7 +20,7 @@ def bfs(Dx, Dy):
             ny = y + dy[i]
             if 0 <= nx < n and 0 <= ny < m:
                 # 고슴도치 먼저 이동 => '빈칸' 혹은 '굴' 일 때 이동
-                if graph[x][y] == 'S' and (graph[nx][ny] == .' 'or graph[nx][ny] == 'D'):
+                if graph[x][y] == 'S' and (graph[nx][ny] == '.' or graph[nx][ny] == 'D'):
                     graph[nx][ny] = 'S'
                     distance[nx][ny] = distance[x][y] + 1
                     queue.append((nx, ny))
