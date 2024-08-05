@@ -1,21 +1,22 @@
-import heapq
-from collections import deque
-
 n, m = map(int, input().split())
-a = deque(list(map(int, input().split())))
-b = deque(list(map(int, input().split())))
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
 
 answer = []
 
-while a:
-    heapq.heappush(answer, a.popleft())
-while b:
-    heapq.heappush(answer, b.popleft())
+one = 0
+two = 0
+while one < n and two < m:
+    if a[one] < b[two]:
+        answer.append(a[one])
+        one += 1
+    else:
+        answer.append(b[two])
+        two += 1
 
-for _ in range(len(answer)):
-    print(heapq.heappop(answer), end=' ')
+if one < n:
+    answer += a[one:]
+if two < m:
+    answer += b[two:]
 
-'''
-정렬되어 있는 두 배열 a, b
-두 배열을 합친 후, 정렬해서 출력하기
-'''
+print(*answer)
